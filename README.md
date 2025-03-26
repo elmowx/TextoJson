@@ -1,7 +1,7 @@
 # TextoJson
 
 
-1. PDFtoTex
+1. PDFtoTex.py \n
 mathpix pdf to tex
 input: PDF
 output: tex
