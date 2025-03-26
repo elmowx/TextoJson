@@ -14,7 +14,7 @@ split preprocessed tex for text and math blocks and replying with a sequence of 
 input: tex |
 output: tex
 4. JsonMath.py |
-fill json with text and create empty wrapper for math |
+fill json with text and create empty wrappers for math |
 input: tex |
 output: json
 5. JsonMath.py |
