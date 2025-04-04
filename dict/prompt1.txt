@@ -1,0 +1,360 @@
+Please transcribe this LaTeX code into list of wrapper following rules below:
+
+         - it's 1st level children will be nodes with type="wrapper". wrappers represent each of the mathblocks that are present in the document. Wrappers have "id" prop with an unique id that needs to be created. 
+        - under wrapper will always be 1 children with type="inline", no props.
+        - under inline will be actual math nodes. Please compare each LaTeX expression with dictionary attached below and convert strictly following rules described below:
+
+           - all numbers will have type="number". This node have 1 props "value" = actual number. Will not have any children.      
+
+            - any latex code that is found in the latex-corca dict under type=function and a combination of symbols after it (arguments of the function) will convert into a node with  type="function". 
+                   - will have 2 prop, "name"=, "isBuiltIn"=, "omitParentheses" that are all taken from the latex-corca dict. will have 2+ children: 
+                   - will have child with "type"="symbol" with props "value" from latex-corca dict (Always use actual Unicode symbols in your output, not escape sequences). 
+                         - symbol node will have children with type="label" for subscripts/superscripts (ie integral, lim, etc). label node will have 1 prop "position"="right-bottom" or "right-top" and inline children for each of the subscript/superscript. Superscript will be "_" in latex, and superscript will be "^" in latex (note this is not an exponent)
+                   - will have at least 1 child with type="inline" for each argument of the function. in LaTeX, there will be 
+                          - either "(argument1, argument2,...)" right after the function -> we should treat brackets as a list of arguments with "," as a delimeter between them. each argument should be a separate inline node and no group node is needed.
+                          - either a letter going after the function -> we should treat this letter as a single argument.
+
+            - any latex code that is found in the latex-corca dict under type=operatorsymbol will convert into a node with type="operatorSymbol". 
+                   - will have 1 prop, "name"= that is taken from the latex-corca dict.
+                   - will have 1 children, with "type"="symbol" and value from latex-corca dict. Always use proper Unicode symbols in your output, not escape sequences.
+
+            - any latex code that is found in the latex-corca dict under type=operator will convert into a node with type type="operator":
+                   - will have 2 props, "name"= and "operatorType", both should be filled in from the latex-corca dict.
+                   - will have at least 1 inline child that will follow regular inline rules. 
+
+            - any symbol or a combination of symbols that is not known LaTeX command should be type="variable". this node won't have props, will have  children:
+                    - "type"="symbol", that will have the symbol of the variable.  Always use proper Unicode symbols in your output, not escape sequences.  can have 1 nested child with "type"="decorator", and 1 prop name= which can be vector or hat. we don't support more decorators at this point, so any other above - notations can be skipped. should be a child of a variable, not a separate node.
+                    - (optional)  type "label" and props "position" that can be "left-bottom", "left-top", "right-bottom", "right-top". this node will have type="inline" child with same rules as regular inline except that if there is text, there will be type="plainText"  and value = whatever text is the label. if an object has multiple labels, every label requires it's own type="label" node.       
+                    - variable can represent function of an argument (usually written as g \left( x \right) in LaTeX). in that case, variable will have additional 2 props, "openingSymbol"= and "closingSymbol" representing the brackets of the argument as well as addtl child with inline node representing contents of the argument. 
+
+           - type="group" -> brackets and matrices. this node will have 2 props, "openingSymbol"= and "closingSymbol". for regular () brackets these would be "openingSymbol"="(" and "closingSymbol"=")"". this should not include brackets that go right after a function as these should be treated as argument of the function and not group node.
+               - any group will also have 1 child which will always be a matrix node ("type": "matrix"): 
+                   - if it's for brackets in equation, it will have props "rows"=1, "cols"=1 and 1 child node "inline" that will follow regular inline rules. 
+                - if it's a matrix, it's props will specify how many rows and column it has. 
+
+          - all type of objects except functions can have exponents ("power of"). this is done via placing a separate node with type="operator" with props "operatorType"="power", name="^" with 1 inline children that works as a regular inline. operator node should go right after the object that is being exponeded, not inside it. 
+
+Skip unnecessary spaces between 2 mathblocks and feel free to merge them into the same wrapper and inline.
+
+
+#Here goes couple of examples of wrappers:
+"children": [
+        {
+          "id": "wrapperId1",
+          "type": "wrapper",
+          "props": {},
+          "children": [
+            {
+              "type": "inline",
+              "props": {},
+              "children": [
+                {
+                  "type": "variable",
+                  "children": [
+                    {
+                      "type": "symbol",
+                      "props": {
+                        "value": "a"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wrapperId2",
+          "type": "wrapper",
+          "props": {},
+          "children": [
+            {
+              "type": "inline",
+              "props": {},
+              "children": [
+                {
+                  "type": "function",
+                  "props": {
+                    "name": "Partial Differential",
+                    "isBuiltIn": true,
+                    "omitParentheses": true,
+                    "exports": {
+                      "latex": "{{symbol}} {{parameters.0}}"
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "symbol",
+                      "props": {
+                        "exports": {
+                          "latex": "\\partial"
+                        },
+                        "value": "∂"
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "inline",
+                      "props": {},
+                      "children": [
+                        {
+                          "type": "variable",
+                          "children": [
+                            {
+                              "type": "symbol",
+                              "props": {
+                                "value": "a"
+                              },
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wrapperId3",
+          "type": "wrapper",
+          "props": {},
+          "children": [
+            {
+              "type": "inline",
+              "props": {},
+              "children": [
+                {
+                  "type": "operatorSymbol",
+                  "props": {
+                    "name": "Subset Of",
+                    "semanticType": [
+                      "relation"
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "symbol",
+                      "props": {
+                        "value": "⊂"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wrapperId4",
+          "type": "wrapper",
+          "props": {},
+          "children": [
+            {
+              "type": "inline",
+              "props": {},
+              "children": [
+                {
+                  "type": "variable",
+                  "children": [
+                    {
+                      "type": "symbol",
+                      "props": {
+                        "value": "x"
+                      },
+                      "children": [
+                        {
+                          "type": "label",
+                          "props": {
+                            "position": "right-bottom"
+                          },
+                          "children": [
+                            {
+                              "type": "inline",
+                              "props": {},
+                              "children": [
+                                {
+                                  "type": "number",
+                                  "props": {
+                                    "value": "1"
+                                  },
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wrapperId5",
+          "type": "wrapper",
+          "props": {},
+          "children": [
+            {
+              "type": "inline",
+              "props": {},
+              "children": [
+                {
+                  "type": "variable",
+                  "props": {
+                    "color": "violet"
+                  },
+                  "children": [
+                    {
+                      "type": "symbol",
+                      "props": {
+                        "value": "a"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "operator",
+                  "props": {
+                    "operatorType": "power",
+                    "name": "^"
+                  },
+                  "children": [
+                    {
+                      "type": "inline",
+                      "props": {},
+                      "children": [
+                        {
+                          "type": "number",
+                          "props": {
+                            "value": "2"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+
+"children": [
+      {
+        "id": "96QIxIkfpZ_jnD9OmUBi5",
+        "type": "wrapper",
+        "props": {},
+        "children": [
+          {
+            "id": "cW8pkf2-1wVDQB6eYmObg",
+            "type": "inline",
+            "props": {},
+            "children": [
+              {
+                "id": "y_R7MVWQHy9S5I62Cnbcg",
+                "type": "variable",
+                "props": {
+                  "color": "blue"
+                },
+                "children": [
+                  {
+                    "id": "6OBM_qL0BNqjcRJsTi5A3",
+                    "type": "symbol",
+                    "props": {
+                      "value": "x"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "G_nKlIgVAgJQHA7vJ7MRT",
+                "type": "operator",
+                "props": {
+                  "operatorType": "power",
+                  "name": "^"
+                },
+                "children": [
+                  {
+                    "id": "OOvU-IxaHWF0XBYt3X2IQ",
+                    "type": "inline",
+                    "props": {},
+                    "children": [
+                      {
+                        "id": "1mFIkFocuVxPCPPBteicC",
+                        "type": "number",
+                        "props": {
+                          "value": "3"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "E9fn3VgVVzipWBhmHT7Pr",
+                "type": "operatorSymbol",
+                "props": {
+                  "name": "Plus",
+                  "semanticType": []
+                },
+                "children": [
+                  {
+                    "id": "obrCdJjYekpDfxpYM_WJw",
+                    "type": "symbol",
+                    "props": {
+                      "value": "+"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "xkJ8FlgeqgVbYk817uuaY",
+                "type": "number",
+                "props": {
+                  "value": "48"
+                },
+                "children": []
+              },
+              {
+                "id": "SVTD3--y9G29JB_yrpSjW",
+                "type": "operatorSymbol",
+                "props": {
+                  "name": "Equal",
+                  "semanticType": [
+                    "relation"
+                  ]
+                },
+                "children": [
+                  {
+                    "id": "ohjnVwSUAW32-mwFAyNWT",
+                    "type": "symbol",
+                    "props": {
+                      "value": "="
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+reply without any additional text 
