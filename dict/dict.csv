@@ -1,0 +1,352 @@
+Name,Type,operatorType,Symbol,isBuiltIn,omitParentheses,LaTeX Commands
+Logarithm,function,,log,TRUE,TRUE,\log
+Logarithm Base 10,function,,lg,TRUE,TRUE,\lg
+Logarithm Base 2,function,,log,TRUE,TRUE,\log
+Logarithm Base 2,function,,lb,TRUE,TRUE,
+Natural Logarithm,function,,ln,TRUE,TRUE,\ln
+Greatest Common Divisor,function,,gcd,TRUE,FALSE,\gcd
+Least Common Multiple,function,,lcm,TRUE,FALSE,\lcm
+Omega Function,function,,ω,TRUE,FALSE,
+Capital Omega Function,function,,Ω,TRUE,FALSE,
+Euler Totient Function,function,,𝜙,FALSE,FALSE,\phi
+Dirichlet Function,function,,D,FALSE,FALSE,
+Riemann Function,function,,R,FALSE,FALSE,
+Modulo,function,,mod,TRUE,FALSE,
+Arithmetic Mean,function,,AM,TRUE,FALSE,
+Average,function,,AM,TRUE,FALSE,
+Geometric Mean,function,,GM,TRUE,FALSE,
+Arithmetic-Geometric Mean,function,,AGM,TRUE,FALSE,
+Min,function,,min,TRUE,FALSE,\min
+Max,function,,max,TRUE,FALSE,\max
+Exponential Function,function,,exp,TRUE,FALSE,
+Differential,function,,d,TRUE,TRUE,
+Second Differential,function,,d,TRUE,TRUE,
+Third Differential,function,,d,TRUE,TRUE,
+N-Differential,function,,d,TRUE,TRUE,
+Partial Differential,function,,∂,TRUE,TRUE,\partial
+Second Partial Differential,function,,∂,TRUE,TRUE,
+Third Partial Differential,function,,∂,TRUE,TRUE,
+N-Partial Differential,function,,∂,TRUE,TRUE,
+Delta,function,,Δ,TRUE,TRUE,
+Summation,function,,∑,TRUE,TRUE,\sum
+Wedge Sum,function,,⋁,TRUE,FALSE,\bigwedge
+Direct Sum,function,,⨁,TRUE,TRUE,\bigoplus
+Large Tensor Product,function,,⨂,TRUE,TRUE,\bigotimes
+Product,function,,∏,TRUE,TRUE,\prod
+Coproduct,function,,∐,TRUE,TRUE,\coprod
+Integral,function,,∫,TRUE,TRUE,\int
+Indefinite Integral,function,,∫,TRUE,TRUE,\int
+Double Integral,function,,∬,TRUE,TRUE,\iint
+Triple Integral,function,,∭,TRUE,TRUE,\iiint
+Contour Integral,function,,∮,TRUE,TRUE,\oint
+Clockwise Integral,function,,∱,TRUE,TRUE,\oint
+Clockwise Contour Integral,function,,∲,TRUE,TRUE,\oint
+Anticlockwise Contour Integral,function,,∳,TRUE,TRUE,\oint
+Surface Integral,function,,∯,TRUE,TRUE,\oiint
+Volume Integral,function,,∰,TRUE,TRUE,\oiiint
+Limit,function,,lim,TRUE,TRUE,\lim
+Divergence,function,,div,TRUE,FALSE,
+Curl,function,,curl,TRUE,FALSE,
+Absolute Value,function,,abs,TRUE,FALSE,\left| \right|
+Argument Of A Complex Number,function,,arg,TRUE,FALSE,
+Lagrangian,function,,ℒ,TRUE,FALSE,
+Hamiltonian,function,,H,TRUE,FALSE,
+Fourier Transform,function,,ℱ,TRUE,FALSE,
+Fourier Bessel Transform,function,,ℱ,TRUE,FALSE,
+Potential Energy,function,,V,TRUE,FALSE,
+Abel Transform,function,,g,TRUE,FALSE,
+Instrument Function,function,,I,TRUE,FALSE,
+Distance Between Two Points,function,,dist,TRUE,FALSE,
+Determinant,function,,det,TRUE,FALSE,
+Trace,function,,tr,TRUE,FALSE,
+Rank,function,,rank,TRUE,FALSE,
+Wave Function,function,,ψ,FALSE,FALSE,
+Bessel Function,function,,J,TRUE,FALSE,
+Gamma Function,function,,Γ,TRUE,FALSE,
+Dirac Function,function,,δ,FALSE,FALSE,
+Heaviside Function,function,,H,FALSE,FALSE,
+Kronecker Delta,function,,δ,FALSE,FALSE,
+Riemann Zeta Function,function,,ζ,FALSE,FALSE,
+Bateman Function,function,,K,FALSE,FALSE,
+Beta Function,function,,B,FALSE,FALSE,
+Expected Value,function,,E,TRUE,FALSE,
+Standard Deviation,function,,σ,FALSE,FALSE,
+Covariance,function,,cov,TRUE,FALSE,
+Variance,function,,var,TRUE,FALSE,
+Probability,function,,P,TRUE,FALSE,
+Correlation,function,,corr,TRUE,FALSE,
+Median,function,,med,TRUE,FALSE,
+Mode,function,,mode,TRUE,FALSE,
+Absolute Deviation,function,,Δ,TRUE,TRUE,
+Average Absolute Deviaton,function,,AAD,TRUE,FALSE,
+Absolute Error,function,,Δ,TRUE,TRUE,
+Sine,function,,sin,TRUE,TRUE,\sin
+Arcsine,function,,asin,TRUE,TRUE,\arcsin
+Cosine,function,,cos,TRUE,TRUE,\cos
+Arccosine,function,,acos,TRUE,TRUE,\arccos
+Tangent,function,,tan,TRUE,TRUE,\tan
+Arctangent,function,,atan,TRUE,TRUE,\arctan
+Cotangent,function,,cot,TRUE,TRUE,\cot
+Arccotangent,function,,acot,TRUE,TRUE,\acot
+Secant,function,,sec,TRUE,TRUE,\sec
+Arcsecant,function,,asec,TRUE,TRUE,
+Cosecant,function,,csc,TRUE,TRUE,\csc
+Arccosecant,function,,acsc,TRUE,TRUE,
+Hyperbolic Sine,function,,sinh,TRUE,TRUE,\sinh
+Hyperbolic Cosine,function,,cosh,TRUE,TRUE,\cosh
+Hyperbolic Tangent,function,,tanh,TRUE,TRUE,\tanh
+Hyperbolic Cotangent,function,,coth,TRUE,TRUE,\coth
+Hyperbolic Secant,function,,sech,TRUE,TRUE,
+Hyperbolic Cosecant,function,,csch,TRUE,TRUE,
+Hyperbolic Arcsine,function,,arcsinh,TRUE,TRUE,
+Hyperbolic Arccosine,function,,arccosh,TRUE,TRUE,
+Hyperbolic Arctangent,function,,arctanh,TRUE,TRUE,
+Hyperbolic Arccotangent,function,,arccoth,TRUE,TRUE,
+Hyperbolic Arcsecant,function,,arcsech,TRUE,TRUE,
+Hyperbolic Arccosecant,function,,arccsch,TRUE,TRUE,
+Atan2,function,,atan2,TRUE,TRUE,
+Versine,function,,versin,TRUE,TRUE,
+Coversine,function,,cvs,TRUE,TRUE,
+Exsecant,function,,exsec,TRUE,TRUE,
+Excosecant,function,,excsc,TRUE,TRUE,
+Haversine,function,,haversin,TRUE,TRUE,
+Hacoversine,function,,hacoversin,TRUE,TRUE,
+Gudermannian,function,,gd,TRUE,TRUE,
+Kampé De Fériet Function,function,,F,FALSE,FALSE,
+Arc Length,function,,s,FALSE,FALSE,
+Barnes G-Function,function,,G,FALSE,FALSE,
+Beurling'S Function,function,,B,FALSE,FALSE,
+Bit Length,function,,BL,FALSE,FALSE,
+Window Function,function,,W,FALSE,FALSE,
+Blackman Function,function,,B,FALSE,FALSE,
+Blancmange Function,function,,blanc,FALSE,FALSE,
+Butterfly Function,function,,f,FALSE,FALSE,
+Buchstab Function,function,,ω,FALSE,FALSE,
+Kernel,function,,ker,FALSE,FALSE,
+Boxcar Function,function,,П,FALSE,FALSE,
+Exponental Generating Function,function,,EG,FALSE,FALSE,
+Definite Integral Evaluation,function,,∣,TRUE,TRUE,\left. \raisebox{1em}{} \right
+Poisson Generating Function,function,,PG,FALSE,FALSE,
+Boustrophedon Transform,function,,b,FALSE,FALSE,
+Bourget Function,function,,J,FALSE,FALSE,
+D'Alembert Operator,function,,◻,TRUE,FALSE,
+Metric Signature,function,,sign,TRUE,FALSE,
+Power Set,function,,P,FALSE,FALSE,
+Union Of Sets,function,,⋃,TRUE,FALSE,\bigcup
+Intersection Of Sets,function,,⋂,TRUE,FALSE,\bigcap
+N-Ary Logical And,function,,⋀,TRUE,FALSE,\bigwedge
+N-Ary Logical Or,function,,⋁,TRUE,FALSE,\bigvee
+Disjoint Union,function,,⨆,TRUE,FALSE,\bigsqcup
+Subset Of,operatorSymbol,,⊂,,,\subset
+Double Subset,operatorSymbol,,⋐,,,\Subset
+Not A Subset Of,operatorSymbol,,⊄,,,
+Double Superset,operatorSymbol,,⋑,,,\Supset
+Gradient,operatorSymbol,,∇,,,\nabla
+Laplacian,operatorSymbol,,∇,,,\nabla^2
+Plus,operatorSymbol,,#ERROR!,,,
+Divide By,operatorSymbol,,/,,,
+Superset Of,operatorSymbol,,⊃,,,\supset
+Not A Superset Of,operatorSymbol,,⊅,,,\not\supset
+Superset Of Or Equal To,operatorSymbol,,⊇,,,\supseteq
+Superset Of With Not Equal To,operatorSymbol,,⊋,,,\supsetneq
+Subset Of With Not Equal To,operatorSymbol,,⊊,,,\subsetneq
+Not An Imrpoper Superset,operatorSymbol,,⊉,,,\nsupseteq
+Subset Of Of Equal To,operatorSymbol,,⊆,,,\subseteq
+Not Improper Subset,operatorSymbol,,⊈,,,\nsubseteq
+Subtraction,operatorSymbol,,-,,,
+Element Of,operatorSymbol,,∈,,,\in
+Not An Element Of,operatorSymbol,,∉,,,\notin
+Division,operatorSymbol,,÷,,,\div
+Multiplication,operatorSymbol,,⋅,,,\times
+Bullet Operator,operatorSymbol,,∙,,,\bullet
+Multiplication,operatorSymbol,,×,,,\times
+Plus-Minus,operatorSymbol,,±,,,\pm
+Minus-Plus,operatorSymbol,,∓,,,\mp
+Belongs To,operatorSymbol,,∋,,,\ni
+Dot Plus,operatorSymbol,,∔,,,\dotplus
+Does Not Belong To,operatorSymbol,,∌,,,\notni
+Proportional To,operatorSymbol,,∝,,,\varpropto
+Ratio,operatorSymbol,,∶,,,\Colon
+As,operatorSymbol,,∷,,,
+Set Difference,operatorSymbol,,∖,,,\setminus
+Equal,operatorSymbol,,#ERROR!,,,
+Cartesian Product,operatorSymbol,,⨯,,,\times
+Cross Product,operatorSymbol,,⨯,,,\times
+Not Equal,operatorSymbol,,≠,,,\neq
+Not Yet Demonstrated To Be Equal,operatorSymbol,,≟,,,\questeq
+Equal To By Definition,operatorSymbol,,≝,,,\equiv
+Delta Equal To,operatorSymbol,,≜,,,\triangleq
+Ring In Equal To,operatorSymbol,,≖,,,\eqcirc
+Ring Equal To,operatorSymbol,,≗,,,\circeq
+Corresponds To,operatorSymbol,,≘,,,
+Estimates,operatorSymbol,,≙,,,
+Equiangular to,operatorSymbol,,≚,,,
+Star Equals,operatorSymbol,,≛,,,
+Precedes,operatorSymbol,,≺,,,\prec
+Not Precedes,operatorSymbol,,⊀,,,\nprec
+Less Than,operatorSymbol,,<,,,
+Less Than With Dot,operatorSymbol,,⋖,,,\lessdot
+Greater Than With Dot,operatorSymbol,,⋗,,,\gtrdot
+Less Than Or Equal To,operatorSymbol,,≤,,,\leq
+Less Than Over Equal To,operatorSymbol,,≦,,,\leqq
+Greater Than Or Equal To,operatorSymbol,,≧,,,\geqq
+Less Than But Not Equal To,operatorSymbol,,≨,,,\lneqq
+Greater Than But Not Equal To,operatorSymbol,,≩,,,\gneqq
+Less Than Or Equivalent To,operatorSymbol,,≲,,,\lesssim
+Greater Than Or Equivalent To,operatorSymbol,,≳,,,\gtrsim
+Neither Less Than Nor Equivalent To,operatorSymbol,,≴,,,\not\lesssim
+Neither Greater Than Nor Equivalent To,operatorSymbol,,≵,,,\not\gtrsim
+Not Less Than,operatorSymbol,,≮,,,\nless
+Not Less Than Or Equal,operatorSymbol,,≰,,,\nleq
+Greater Than,operatorSymbol,,>,,,
+Greater Than Or Equal,operatorSymbol,,≥,,,\geq
+Not Greater Than Or Equal,operatorSymbol,,≱,,,\ngeq
+Not Greater Than,operatorSymbol,,≯,,,\ngtr
+Much Greater Than,operatorSymbol,,≫,,,\gg
+Neither Greater Than Nor Less Than,operatorSymbol,,≹,,,\not\gtrless
+Neither Less Than Nor Greater Than,operatorSymbol,,≸,,,\not\lessgtr
+Less Than Or Greater Than,operatorSymbol,,≶,,,\lessgtr
+Greater Than Or Less Than,operatorSymbol,,≷,,,\gtrless
+Succeeds,operatorSymbol,,≻,,,\succ
+Does Not Succeed,operatorSymbol,,⊁,,,\nsucc
+Precedes Or Equal To,operatorSymbol,,≼,,,\preceq
+Precedes Or Equivalent To,operatorSymbol,,≾,,,\precsim
+Succeeds Or Equivalent To,operatorSymbol,,≿,,,\succsim
+Much Less Than,operatorSymbol,,≪,,,\ll
+Very Much Less Than,operatorSymbol,,⋘,,,\lll
+Very Much Greater Than,operatorSymbol,,⋙,,,\ggg
+Succeeds Or Equal To,operatorSymbol,,≽,,,\succeq
+Similar To,operatorSymbol,,~,,,\sim
+Triple Tilde,operatorSymbol,,≋,,,\approx
+Not Similar,operatorSymbol,,≁,,,\nsim
+Difference Between,operatorSymbol,,≏,,,\bumpeq
+Minus Tilde,operatorSymbol,,≂,,,\eqsim
+Neither Approximately Nor Actually Equal To,operatorSymbol,,≇,,,\ncong
+Sine Wave,operatorSymbol,,∿,,,\thicksim
+Reversed Tilde,operatorSymbol,,∽,,,\backsim
+Almost Equal Or Equal To,operatorSymbol,,≊,,,\approxeq
+Almost Equal To,operatorSymbol,,≈,,,\approx
+Not Almost Equal To,operatorSymbol,,≉,,,\not\approx
+"Algebra, Order Theory",operatorSymbol,,≒,,,\fallingdotseq
+Image Of Or Approximately Equal To,operatorSymbol,,≓,,,\risingdotseq
+Isomorphic To,operatorSymbol,,≃,,,\simeq
+Approximately Equal,operatorSymbol,,≌,,,\cong
+Equal To Or Approximately Equal To,operatorSymbol,,⋍,,,\backsimeq
+Equivalent To,operatorSymbol,,≡,,,\equiv
+Strictly Equivalent To,operatorSymbol,,≣,,,\equiv
+Not Equivalent,operatorSymbol,,≢,,,\neqiv
+Approximately But Not Actually Equal,operatorSymbol,,≆,,,\simneqq
+Defined As,operatorSymbol,,≔,,,\coloneqq
+Not Asymptotically Equal,operatorSymbol,,≄,,,\nsime
+Not Equivalent,operatorSymbol,,≭,,,\nasymp
+Wreath Product,operatorSymbol,,≀,,,\wr
+Union,operatorSymbol,,∪,,,\cup
+Logical And,operatorSymbol,,∧,,,\land
+Logical Or,operatorSymbol,,∨,,,\lor
+Intersection,operatorSymbol,,∩,,,\cap
+Iintersect Transversally,operatorSymbol,,⋔,,,\pitchfork
+Congruent,operatorSymbol,,≅,,,\cong
+Join,operatorSymbol,,∨,,,\vee
+Bottom Element,operatorSymbol,,⊥,,,\bot
+Top Element,operatorSymbol,,⊤,,,\top
+Square Image Of Or Equal To,operatorSymbol,,⊑,,,\sqsubseteq
+Square Original Of Or Equal To,operatorSymbol,,⊒,,,\sqsupseteq
+Square Image Of,operatorSymbol,,⊏,,,\sqsubset
+Square Original Of,operatorSymbol,,⊐,,,\sqsupset
+Dot Product,operatorSymbol,,⋅,,,\cdot
+Divides,operatorSymbol,,|,,,"\vert, \mid"
+Logical And,operatorSymbol,,∧,,,\land
+Logical Or,operatorSymbol,,∨,,,\vee
+Logical Exclisive Or,operatorSymbol,,⊻,,,\veebar
+Logical Nand,operatorSymbol,,⊼,,,\barwedge
+Logical Nor,operatorSymbol,,⊽,,,\barvee
+Implies,operatorSymbol,,→,,,\implies
+For All,operatorSymbol,,∀,,,\forall
+There Exists Exactly One,operatorSymbol,,∃!,,,\exists!
+There Doesn't Exist,operatorSymbol,,∄,,,\nexists
+Parallel,operatorSymbol,,∥,,,\parallel
+Equal And Parallel To,operatorSymbol,,⋕,,,\parallel
+Not Parallel To,operatorSymbol,,∦,,,\nparallel
+Perpendicular,operatorSymbol,,⟂,,,\perp
+Perpendicular Angle,operatorSymbol,,⊾,,,\measuredrightangle
+Does Not Divide,operatorSymbol,,∤,,,\nmid
+Angle,operatorSymbol,,∠,,,\angle
+Measured Angle,operatorSymbol,,∡,,,\measuredangle
+Excess,operatorSymbol,,∹,,,\eqcolon
+Geometric Proportion,operatorSymbol,,∺,,,\ddiv
+Right Angle,operatorSymbol,,∟,,,\rightangle
+Triangle,operatorSymbol,,△,,,\triangle
+Circle,operatorSymbol,,○,,,\circ
+Logical Not,operatorSymbol,,¬,,,\neg
+If And Only If,operatorSymbol,,↔,,,\iff
+There Exists,operatorSymbol,,∃,,,\exists
+Such That,operatorSymbol,,:,,,\ni
+Approaches The Limit,operatorSymbol,,≐,,,
+Proves,operatorSymbol,,⊦,,,\vdash
+Entails,operatorSymbol,,⊨,,,\models
+Does Not Entail,operatorSymbol,,⊭,,,\nVDash
+Because,operatorSymbol,,∵,,,\because
+Between,operatorSymbol,,≬,,,\between
+Join,operatorSymbol,,⋈,,,\bowtie
+Normal Subgroup,operatorSymbol,,⊲,,,\vartriangleleft
+Not Normal Subgroup,operatorSymbol,,⋪,,,\ntriangleleft
+Normal Subgroup Or Equal,operatorSymbol,,⊴,,,\trianglelefteq
+Not Normal Subgroup Or Equal,operatorSymbol,,⋬,,,\ntrianglelefteq
+Contains As Normal Subgroup,operatorSymbol,,⊳,,,\vartriangleright
+Contains As Normal Subgroup Or Equal To,operatorSymbol,,⊵,,,\trianglerighteq
+Does Not Contain As Normal Subgroup,operatorSymbol,,⋫,,,\ntriangleright
+Does Not Contain As Normal Subgroup Or Equal To,operatorSymbol,,⋭,,,\ntrianglerighteq
+Does Not Form A Left Coset,operatorSymbol,,⋽,,,\varniobar
+Disjoint Union,operatorSymbol,,⊔,,,\coprod
+Wedge Product,operatorSymbol,,⋏,,,\wedge
+Diamond Operator,operatorSymbol,,⋄,,,\diamond
+Divide-Times,operatorSymbol,,⋇,,,\divideontimes
+Not Entailed,operatorSymbol,,⊬,,,\doesnotentail
+Monus,operatorSymbol,,∸,,,\dotdiv
+Double Intersection,operatorSymbol,,⋒,,,\doublecap
+Double Union,operatorSymbol,,⋓,,,\doublecup
+End Of Proof,operatorSymbol,,∎,,,\qed
+Therefore,operatorSymbol,,∴,,,\therefore
+Sandwich,operatorSymbol,,≍,,,\asymp
+Geometrically Equal,operatorSymbol,,≑,,,\Doteq
+Geometrically Equivalent,operatorSymbol,,≎,,,\bumpeq
+Homothetic,operatorSymbol,,∻,,,\kernelcontraction
+Transpose,operatorSymbol,,⊺,,,\intercal
+Left Normal Factor Semidirect Product,operatorSymbol,,⋉,,,\ltimes
+Right Normal Factor Semidirect Product,operatorSymbol,,⋊,,,\rtimes
+Left Semidirect Product,operatorSymbol,,⋋,,,\lthreetimes
+Right Semidirect Product,operatorSymbol,,⋌,,,\rthreetimes
+Tensor Product,operatorSymbol,,⨂,,,\otimes
+Direct Sum,operatorSymbol,,⨁,,,\oplus
+Ellipsis,operatorSymbol,,⋯,,,\ldots
+3 Dots,operatorSymbol,,⋯,,,\cdots
+Measured By,operatorSymbol,,≞,,,\measeq
+Multimap,operatorSymbol,,⊸,,,\multimap
+Hadamard Product,operatorSymbol,,⨀,,,\odot
+Khatri–Rao Product,operatorSymbol,,∗,,,\ast
+Does Not Model,operatorSymbol,,⊯,,,\nVDash
+Composition,operatorSymbol,,∘,,,\circ
+Spherical Angle,operatorSymbol,,∢,,,\measuredangle
+Approaches,operatorSymbol,,→,,,\rightarrow
+Rightwards Arrow,operatorSymbol,,→,,,\rightarrow
+Then,operatorSymbol,,⇒,,,\Rightarrow
+Leftwards Arrow,operatorSymbol,,←,,,\leftarrow
+Upwards Arrow,operatorSymbol,,↑,,,\uparrow
+Downwards Arrow,operatorSymbol,,↓,,,\downarrow
+Upper Right Arrow,operatorSymbol,,↗,,,\nearrow
+Lower Left Arrow,operatorSymbol,,↙,,,\swarrow
+Left Right Arrow,operatorSymbol,,↔,,,\leftrightarrow
+Up Down Arrow,operatorSymbol,,↕,,,\updownarrow
+Tri-Pointed Upwards Arrow,operatorSymbol,,⇵,,,\UpArrowDownArrow
+If And Only If,operatorSymbol,,⇔,,,\iff
+End Of Proof,operatorSymbol,,⊣,,,\dashv
+Converse Implication,operatorSymbol,,⇐,,,\Leftarrow
+Retraction,operatorSymbol,,↩,,,\hookleftarrow
+Inclusion Map,operatorSymbol,,↪,,,\hookrightarrow
+Add Member,operatorSymbol,,;,,,
+To,operatorSymbol,,→,,,\rightarrow
+Inverse Assigment,operatorSymbol,,≕,,,\eqcolon
+Comma,operatorSymbol,,",",,,
+/,operator,fraction,,,,\frac
+!,operator,factorial,,,,!
+√,operator,root,,,,\sqrt
