@@ -1,0 +1,48 @@
+I have created certain Json structure, I need to replace wrappers in it with new ones. Don’t change anything else and reply just with updated  json without any additional text
+
+Here is overall logic of Json format for clarity:
+- first level of JSON is always 2 nodes:
+      -  id="textNode" & "type": "text" that will have all the math wrappers and 
+      -  "type": "textNode": that will have the title, all the text and links to the math nodes where applicable. 
+
+here is it's logic:
+        - Title is "type": "documentTitle" with no props and single child with "type"="Text" and "text"=actual title.
+        - for sections/subsections, we should use  "type": "heading" node with levels (3 being the subsubsection and 1 being section). 
+        - each paragraph of the doc is a separate child with "type"="paragraph". Within a paragraph, child nodes of "type"="inlineExpression" with "attributes" "isInline": "true", and "nodeId" that links to the wrapper from the "text" node (see below). Order of child nodes is the same as they are in the initial LaTeX
+         - "If there is no text, just math, there still should be a type="paragraph" with "inlineExpression" child(s) with links to the wrappers. 
+         - it's 1st level children will be nodes with type="wrapper". wrappers represent each of the mathblocks that are present in the document. Wrappers have "id" prop with an unique id that needs to be created. 
+        - under wrapper will always be 1 children with type="inline", no props.
+        - under inline will be actual math nodes. Please compare each LaTeX expression with dictionary attached below and convert strictly following rules described below:
+
+           - all numbers will have type="number". This node have 1 props "value" = actual number. Will not have any children.      
+
+            - any latex code that is found in the latex-corca dict under type=function and a combination of symbols after it (arguments of the function) will convert into a node with  type="function". 
+                   - will have 2 prop, "name"=, "isBuiltIn"=, "omitParentheses" that are all taken from the latex-corca dict. will have 2+ children: 
+                   - will have child with "type"="symbol" with props "value" from latex-corca dict (Always use actual Unicode symbols in your output, not escape sequences). 
+                         - symbol node will have children with type="label" for subscripts/superscripts (ie integral, lim, etc). label node will have 1 prop "position"="right-bottom" or "right-top" and inline children for each of the subscript/superscript. Superscript will be "_" in latex, and superscript will be "^" in latex (note this is not an exponent)
+                   - will have at least 1 child with type="inline" for each argument of the function. in LaTeX, there will be 
+                          - either "(argument1, argument2,...)" right after the function -> we should treat brackets as a list of arguments with "," as a delimeter between them. each argument should be a separate inline node and no group node is needed.
+                          - either a letter going after the function -> we should treat this letter as a single argument.
+
+            - any latex code that is found in the latex-corca dict under type=operatorsymbol will convert into a node with type="operatorSymbol". 
+                   - will have 1 prop, "name"= that is taken from the latex-corca dict.
+                   - will have 1 children, with "type"="symbol" and value from latex-corca dict. Always use proper Unicode symbols in your output, not escape sequences.
+
+            - any latex code that is found in the latex-corca dict under type=operator will convert into a node with type type="operator":
+                   - will have 2 props, "name"= and "operatorType", both should be filled in from the latex-corca dict.
+                   - will have at least 1 inline child that will follow regular inline rules. 
+
+            - any symbol or a combination of symbols that is not known LaTeX command should be type="variable". this node won't have props, will have  children:
+                    - "type"="symbol", that will have the symbol of the variable.  Always use proper Unicode symbols in your output, not escape sequences.  can have 1 nested child with "type"="decorator", and 1 prop name= which can be vector or hat. we don't support more decorators at this point, so any other above - notations can be skipped. should be a child of a variable, not a separate node.
+                    - (optional)  type "label" and props "position" that can be "left-bottom", "left-top", "right-bottom", "right-top". this node will have type="inline" child with same rules as regular inline except that if there is text, there will be type="plainText"  and value = whatever text is the label. if an object has multiple labels, every label requires it's own type="label" node.       
+                    - variable can represent function of an argument (usually written as g \left( x \right) in LaTeX). in that case, variable will have additional 2 props, "openingSymbol"= and "closingSymbol" representing the brackets of the argument as well as addtl child with inline node representing contents of the argument. 
+
+           - type="group" -> brackets and matrices. this node will have 2 props, "openingSymbol"= and "closingSymbol". for regular () brackets these would be "openingSymbol"="(" and "closingSymbol"=")"". this should not include brackets that go right after a function as these should be treated as argument of the function and not group node.
+               - any group will also have 1 child which will always be a matrix node ("type": "matrix"): 
+                   - if it's for brackets in equation, it will have props "rows"=1, "cols"=1 and 1 child node "inline" that will follow regular inline rules. 
+                - if it's a matrix, it's props will specify how many rows and column it has. 
+
+          - all type of objects except functions can have exponents ("power of"). this is done via placing a separate node with type="operator" with props "operatorType"="power", name="^" with 1 inline children that works as a regular inline. operator node should go right after the object that is being exponeded, not inside it. 
+
+Skip unnecessary spaces between 2 mathblocks and feel free to merge them into the same wrapper and inline.
+
