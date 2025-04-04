@@ -13,7 +13,7 @@ output: tex
 split preprocessed tex for text and math blocks and replying with a sequence of separate blocks |
 input: tex |
 output: tex
-4. JsonMath.py |
+4. JsonText.py |
 fill json with text and create empty wrappers for math |
 input: tex |
 output: json
@@ -22,4 +22,4 @@ take math blocks from TexSplitter and send them to gpt to reply with separate wr
 input: tex |
 output: json
 6. JsonMerge.py |
-merge JsonMath and JsonMath, not finished
+merge JsonText and JsonMath, not finished
