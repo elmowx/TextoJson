@@ -1,33 +1,28 @@
-import os
-from openai import OpenAI
-from dotenv import load_dotenv
+import json
 
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+json_file_path = "output/output4.json"
+wrapper_file_path = "output/output5.txt"
+output = "output/output6.json"
 
-def read_file(file_path: str) -> str:
-    try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            return f.read()
-    except Exception as e:
-        return f"Error reading file {file_path}: {e}"
+with open(wrapper_file_path, "r", encoding="utf-8") as f:
+    new_wrappers = json.load(f)
+new_wrappers_dict = {wrapper["id"]: wrapper for wrapper in new_wrappers}
 
-def send_complete_prompt(txt_file: str, json_file: str, wrapper_file: str) -> str:
-    prompt_text = read_file(txt_file)
-    json_content = read_file(json_file)
-    wrapper_content = read_file(wrapper_file)
-    full_prompt = f"{prompt_text}\n\nJson itself:\n{json_content}\n\n New wrappers:\n{wrapper_content}"
-    try:
-        response = client.chat.completions.create(model="o3-mini",
-        messages=[{"role": "user", "content": full_prompt}])
-        return response.choices[0].message.content
-    except Exception as e:
-        return f"An error occurred during the API call: {e}"
+with open(json_file_path, "r", encoding="utf-8") as f:
+    original_data = json.load(f)
 
-if __name__ == "__main__":
-    txt_file_path = "dict/prompt2.txt"
-    json_file_path = "output/output4.json"
-    wrapper_file_path = "output/output5.txt"
-    result = send_complete_prompt(txt_file_path, json_file_path, wrapper_file_path)
-    with open("output/output6.json", "w", encoding="utf-8") as f:
-        f.write(result)
+def replace_wrappers(obj):
+    if isinstance(obj, dict):
+        if obj.get("type") == "wrapper" and "id" in obj and obj["id"] in new_wrappers_dict:
+            return new_wrappers_dict[obj["id"]]
+        return {key: replace_wrappers(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [replace_wrappers(item) for item in obj]
+    return obj
+
+updated_data = replace_wrappers(original_data)
+
+with open(output, "w", encoding="utf-8") as f:
+    json.dump(updated_data, f, indent=4, ensure_ascii=False)
+
+print("Updated JSON saved as", output)
